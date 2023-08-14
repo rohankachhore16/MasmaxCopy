@@ -4,9 +4,6 @@ import {
   CarCrash,
   Category,
   Dashboard,
-  Drafts,
-  Inbox,
-  Mail,
   MinorCrash,
   People,
   SupportAgent,
@@ -26,7 +23,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const ListItemComponent = ({ open, setOpen }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const AdminList = [
     {
       id: "1",
@@ -36,39 +33,47 @@ const ListItemComponent = ({ open, setOpen }) => {
     },
     {
       id: "2",
-      icon: <People />,
+      icon: <CarCrash />,
       value: "Customers",
-      path: ROUTE_DEFINATION.CUSTOMER,
+      path: ROUTE_DEFINATION.ALL_USER_LIST,
     },
     {
       id: "3",
-      icon: <CarCrash />,
+      icon: <SupportAgent />,
       value: "Service Request",
-      path: ROUTE_DEFINATION.SERVICE_REQUEST,
+      path: ROUTE_DEFINATION.ALL_SERVICE_REQUEST,
     },
     {
       id: "4",
-      icon: <SupportAgent />,
-      value: "Service Provider",
-      path: ROUTE_DEFINATION.SERVICE_PROVIDER,
+      icon: <Assessment />,
+      value: "Service Provider ",
+      path: ROUTE_DEFINATION.SERVICE_PROVIDER_LIST,
     },
     {
       id: "5",
-      icon: <Category />,
-      value: "Service Categories",
-      path: ROUTE_DEFINATION.SERVICE_CATEGORIES,
+      icon: <People />,
+      value: " Service Categories",
+      path: ROUTE_DEFINATION.ALL_SERVICE_LIST,
     },
+
+
+    // {
+    //   id: "6",
+    //   icon: <Category />,
+    //   value: "Create Category",
+    //   path: ROUTE_DEFINATION.CREATE_CATEGORY,
+    // },
+    // {
+    //   id: "6",
+    //   icon: <MinorCrash />,
+    //   value: "Create Sub Category ",
+    //   path: ROUTE_DEFINATION.CREATE_SUB_CATEGORY,
+    // },
     {
       id: "6",
-      icon: <MinorCrash />,
-      value: "Service ",
-      path: ROUTE_DEFINATION.SERVICE,
-    },
-    {
-      id: "7",
       icon: <Assessment />,
-      value: "Reports ",
-      path: ROUTE_DEFINATION.REPORTS,
+      value: " Service ",
+      path: ROUTE_DEFINATION.SERVICE,
     },
 
   ];
@@ -91,8 +96,7 @@ const ListItemComponent = ({ open, setOpen }) => {
                   disablePadding
                   sx={{ display: "block" }}
                 >
-                  <ListItemButton onClick={() => navigate(item.path)}
-                  >
+                  <ListItemButton onClick={() => navigate(item.path)}>
                     <ListItemIcon
                       sx={{
                         minWidth: "50px",

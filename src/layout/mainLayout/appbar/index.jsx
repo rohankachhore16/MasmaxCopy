@@ -62,7 +62,7 @@ const AppBar = ({ open, setOpen }) => {
                   background: " #ffb3b3", borderRadius: "10px", color: "#ff6666",
                   '&:hover': {
                     background: "#ff6666",
-                    color:"#ffb3b3"
+                    color: "#ffb3b3"
                   }
                   // ...(open && { display: 'none' }),
                 }}
