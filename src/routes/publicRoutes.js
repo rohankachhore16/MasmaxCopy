@@ -12,6 +12,7 @@ export const PUBLIC_ROUTES = {
       title: ROUTE_DEFINATION.BASE,
       element: <LoginComponent />,
     },
+
     {
       path: ROUTE_DEFINATION.SIGNIN,
       title: ROUTE_DEFINATION.SIGNIN,

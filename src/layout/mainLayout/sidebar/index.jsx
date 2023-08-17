@@ -16,6 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import ListItemComponent from "./listItem";
 import LogoComponent from "../../../component/logo";
 import { Avatar, Box, Chip } from "@mui/material";
+import { deepOrange } from "@mui/material/colors";
 const Sidebar = ({ open, setOpen }) => {
   const drawerWidth = 240;
 
@@ -79,9 +80,11 @@ const Sidebar = ({ open, setOpen }) => {
             {open ? (
               <LogoComponent />
             ) : (
-              <Box sx={{ background: "red", borderRadius: "50%", padding: "13px 10px" }}>
-                <span>MM</span>
-              </Box>
+              // <Box sx={{ background: "red", borderRadius: "50%", padding: "13px 10px" }}>
+              //   <span>MM</span>
+              // </Box>
+              <Avatar sx={{ bgcolor: deepOrange[500] }}>MM</Avatar>
+
             )}
           </Box>
           {/* <IconButton onClick={() => setOpen(false)} >

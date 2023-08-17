@@ -21,8 +21,11 @@ import {
   ListItemText,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeToken } from "../../../redux/slices/authSlice";
 
 const ListItemComponent = ({ open, setOpen }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const AdminList = [
     {
@@ -55,8 +58,6 @@ const ListItemComponent = ({ open, setOpen }) => {
       value: " Service Categories",
       path: ROUTE_DEFINATION.ALL_SERVICE_LIST,
     },
-
-
     // {
     //   id: "6",
     //   icon: <Category />,
@@ -93,10 +94,11 @@ const ListItemComponent = ({ open, setOpen }) => {
               <>
                 <ListItem
                   key={item.id}
+
                   disablePadding
-                  sx={{ display: "block" }}
+                  sx={{ display: "block", }}
                 >
-                  <ListItemButton onClick={() => navigate(item.path)}>
+                  <ListItemButton onClick={() => navigate(item.path)} >
                     <ListItemIcon
                       sx={{
                         minWidth: "50px",
@@ -117,7 +119,7 @@ const ListItemComponent = ({ open, setOpen }) => {
           <Divider />
           <List>
             <ListItem disablePadding sx={{ display: "block" }}>
-              <ListItemButton>
+              <ListItemButton onClick={() => navigate(ROUTE_DEFINATION.PROFILE)}>
                 <ListItemIcon>
                   <AccountCircle />
                 </ListItemIcon>
@@ -125,7 +127,7 @@ const ListItemComponent = ({ open, setOpen }) => {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding sx={{ display: "block" }}>
-              <ListItemButton>
+              <ListItemButton onClick={() => dispatch(removeToken())}>
                 <ListItemIcon>
                   <TrendingFlat />
                 </ListItemIcon>

@@ -1,10 +1,10 @@
 import React from "react";
-import AllUserTemplate from "../../templets/allUserTemplate";
+import AllUserTemplateTable from "../../templets/allUserTemplate/allUserTemplateTable";
 
 const AllUserList = () => {
   return (
     <>
-      <AllUserTemplate />
+      <AllUserTemplateTable />
     </>
   );
 };

@@ -1,10 +1,11 @@
 import React from "react";
+import AllServiceRequestTable from "../../templets/allServiceRequest/allServiceRequestTable";
 
 const AllServiceRequest = () => {
   return (
-    <div>
-      <h1>all service request</h1>
-    </div>
+    <>
+      <AllServiceRequestTable />
+    </>
   );
 };
 

@@ -1,13 +1,32 @@
-import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Link, Paper, TextField, Typography } from '@mui/material'
-import React from 'react'
-import BackGround from "../../../assets/images/login-background.jpg"
-import { LockOutlined } from '@mui/icons-material'
-import { Formik } from 'formik'
-import { ROUTE_DEFINATION } from '../../../utils/routesCostant'
+import {
+  Avatar,
+  Box,
+  Button,
+  Checkbox,
+  CssBaseline,
+  FormControlLabel,
+  Grid,
+  Link,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
+import BackGround from "../../../assets/images/login-background.jpg";
+import {
+  Email,
+  LockOutlined,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
+import { Formik } from "formik";
+import { ROUTE_DEFINATION } from "../../../utils/routesCostant";
+import { InputAdornment } from "@mui/material";
 const LoginComponent = () => {
+  const [show, setShow] = useState(false)
   return (
     <>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
           item
@@ -16,26 +35,34 @@ const LoginComponent = () => {
           md={7}
           sx={{
             backgroundImage: `url(${BackGround})`,
-            backgroundRepeat: 'no-repeat',
+            backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Box
               sx={{
                 my: 8,
                 mx: 4,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: "400px"
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "400px",
               }}
             >
-              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
                 <LockOutlined />
               </Avatar>
               <Typography component="h1" variant="h5">
@@ -51,21 +78,17 @@ const LoginComponent = () => {
                 }}
               >
                 {({
-
                   values,
                   handleBlur,
                   handleSubmit,
                   errors,
                   handleChange,
-
                 }) => (
                   <form onSubmit={handleSubmit}>
-
                     <Box sx={{ mt: 1 }}>
-
                       <TextField
                         margin="normal"
-                        size='small'
+                        size="small"
                         fullWidth
                         id="email"
                         name="email"
@@ -75,6 +98,13 @@ const LoginComponent = () => {
                         label="Email Address"
                         autoComplete="email"
                         autoFocus
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Email />
+                            </InputAdornment>
+                          ),
+                        }}
                       />
                       <TextField
                         margin="normal"
@@ -82,13 +112,24 @@ const LoginComponent = () => {
                         fullWidth
                         name="password"
                         label="Password"
-                        size='small'
-                        type="password"
+                        size="small"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
                         id="password"
+                        type={show ? "text" : "password"}
                         autoComplete="current-password"
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end" >
+                              {
+                                show ?
+                                  <VisibilityOff sx={{ cursor: "pointer" }} onClick={() => setShow(false)} /> :
+                                  <Visibility sx={{ cursor: "pointer" }} onClick={() => setShow(true)} />
+                              }
+                            </InputAdornment>
+                          ),
+                        }}
                       />
                       <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -116,19 +157,14 @@ const LoginComponent = () => {
                       </Grid>
                     </Box>
                   </form>
-
                 )}
-
-
               </Formik>
-
             </Box>
           </Box>
-
         </Grid>
-      </Grid >
+      </Grid>
     </>
-  )
-}
+  );
+};
 
-export default LoginComponent
+export default LoginComponent;
